@@ -5,8 +5,8 @@
 class Wisp < Formula
   desc "Harness-independent coding-agent task manager"
   homepage "https://github.com/Pepewitch/wisp"
-  url "https://github.com/Pepewitch/wisp/releases/download/v0.4.0-alpha.5/wisp-v0.4.0-alpha.5-darwin-arm64.tar.gz"
-  sha256 "d320931996170bbaea7c12693f30b23ceb5a30bc91bdbeb0251748511fb07a95"
+  url "https://github.com/Pepewitch/wisp/releases/download/v0.4.0-alpha.6/wisp-v0.4.0-alpha.6-darwin-arm64.tar.gz"
+  sha256 "bb9bdb527472f24d7d6a0108cfbdf4f34448b424e590d13d309b3597ef12583d"
   license "MIT"
 
   depends_on arch: :arm64
