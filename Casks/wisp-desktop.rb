@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 cask "wisp-desktop" do
-  version "0.4.0-alpha.8"
-  sha256 "00118b85d520e551c4fe386eece56912ba4113b8fafdb304bda2a90f1dc85b26"
+  version "0.4.0-alpha.12"
+  sha256 "d7bf79a2cee013e60be622da6d527b4253d57e8812021d5848bedc10c6d480bb"
 
   url "https://github.com/Pepewitch/wisp/releases/download/v#{version}/wisp-desktop-v#{version}-darwin-arm64.tar.gz"
   name "Wisp Desktop"
@@ -8,9 +10,13 @@ cask "wisp-desktop" do
   homepage "https://github.com/Pepewitch/wisp"
 
   livecheck do
-    skip "Wisp Desktop is currently distributed as a prerelease"
+    url "https://raw.githubusercontent.com/Pepewitch/homebrew-tap/main/updates/wisp-desktop-alpha.json"
+    strategy :json do |json|
+      json["version"]
+    end
   end
 
+  auto_updates true
   depends_on arch: :arm64
   depends_on macos: :monterey
   depends_on formula: "pepewitch/tap/wisp"
@@ -20,10 +26,9 @@ cask "wisp-desktop" do
   uninstall quit: "dev.wisp.desktop"
 
   caveats <<~EOS
-    This experimental Apple Silicon alpha requires macOS 12.3 or newer. It is
-    ad-hoc signed, not Developer ID signed or notarized. On first launch,
-    macOS may require explicit approval in Privacy & Security or Finder's Open
-    command. Do not disable Gatekeeper globally.
+    This Apple Silicon alpha requires macOS 12.3 or newer. Wisp Desktop is
+    Developer ID signed and notarized. After the initial Homebrew install, the
+    application can install its own cryptographically signed updates.
 
     The required Wisp daemon Formula is installed as a dependency. Wisp Desktop
     asks for confirmation before initializing its profile or starting its
@@ -31,7 +36,7 @@ cask "wisp-desktop" do
 
     Uninstalling the Cask quits and removes the app but preserves desktop
     metadata and remote Keychain credentials. Remove remote connections or use
-    Reset Desktop Data before uninstalling if you want those credentials
+    Reset desktop data before uninstalling if you want those credentials
     removed.
   EOS
 end
