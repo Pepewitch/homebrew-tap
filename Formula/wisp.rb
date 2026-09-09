@@ -5,8 +5,8 @@
 class Wisp < Formula
   desc "Harness-independent coding-agent task manager"
   homepage "https://github.com/Pepewitch/wisp"
-  url "https://github.com/Pepewitch/wisp/releases/download/v0.4.0-alpha.17/wisp-v0.4.0-alpha.17-darwin-arm64.tar.gz"
-  sha256 "6e1cb290da7b0d380d559e376fb80b9f68e1c746df3d5d5736a2e890eb16ac50"
+  url "https://github.com/Pepewitch/wisp/releases/download/v0.5.0/wisp-v0.5.0-darwin-arm64.tar.gz"
+  sha256 "8d505d1e3df925ea954d2f145a7cf1c625444ce91f39a316797272158f0c54f2"
   license "MIT"
 
   depends_on arch: :arm64
@@ -18,7 +18,7 @@ class Wisp < Formula
 
   def caveats
     <<~EOS
-      This experimental Apple Silicon alpha is ad-hoc signed, not Developer ID
+      This Apple Silicon daemon is ad-hoc signed, not Developer ID
       signed or notarized. Gatekeeper may require explicit approval. Do not
       disable Gatekeeper globally.
 

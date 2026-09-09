@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 cask "wisp-desktop" do
-  version "0.4.0-alpha.17"
-  sha256 "bf4039becf5021b9062361e7a048b2395668482ca77903e0985160beae438865"
+  version "0.5.0"
+  sha256 "c4d272ac1d83e1e533a6165702b8c59049621eae03e26258de0ce0682acf6421"
 
   url "https://github.com/Pepewitch/wisp/releases/download/v#{version}/wisp-desktop-v#{version}-darwin-arm64.tar.gz"
   name "Wisp Desktop"
@@ -26,7 +26,7 @@ cask "wisp-desktop" do
   uninstall quit: "dev.wisp.desktop"
 
   caveats <<~EOS
-    This Apple Silicon alpha requires macOS 12.3 or newer. Wisp Desktop is
+    This Apple Silicon app requires macOS 12.3 or newer. Wisp Desktop is
     Developer ID signed and notarized. After the initial Homebrew install, the
     application can install its own cryptographically signed updates.
 
