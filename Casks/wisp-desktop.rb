@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 cask "wisp-desktop" do
-  version "0.5.12"
-  sha256 "66ccec403dfb8034cd87323afdfddc037412c68e04d7e947ce45991cb466aa1f"
+  version "0.5.13"
+  sha256 "b63d6957f786f2bfee2e88b0aeb4ea9ef55e2a3c61deba1b3c654868cd32e307"
 
   url "https://github.com/Pepewitch/wisp/releases/download/v#{version}/wisp-desktop-v#{version}-darwin-arm64.tar.gz"
   name "Wisp Desktop"
