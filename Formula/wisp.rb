@@ -5,22 +5,23 @@
 class Wisp < Formula
   desc "Harness-independent coding-agent task manager"
   homepage "https://github.com/Pepewitch/wisp"
-  url "https://github.com/Pepewitch/wisp/releases/download/v0.5.13/wisp-v0.5.13-darwin-arm64.tar.gz"
-  sha256 "f0fe58cc2ddf1db2521693fdb946665ea22c3c100c7c690b29908f4a469aec42"
+  url "https://github.com/Pepewitch/wisp/releases/download/v0.5.14/wisp-v0.5.14-darwin-arm64.tar.gz"
+  sha256 "b446134b411da1773fc347d88a935919a98e623ee0eecc3b07b2c1218643a8c2"
   license "MIT"
 
   depends_on arch: :arm64
   depends_on :macos
 
   def install
-    bin.install "wisp"
+    libexec.install "Wisp Daemon.app"
+    bin.install_symlink libexec/"Wisp Daemon.app/Contents/MacOS/wisp"
   end
 
   def caveats
     <<~EOS
-      This Apple Silicon daemon is ad-hoc signed, not Developer ID
-      signed or notarized. Gatekeeper may require explicit approval. Do not
-      disable Gatekeeper globally.
+      This Apple Silicon daemon is Developer ID signed and
+      notarized. Its branded background app and stable code identity preserve
+      the App Management icon and privacy permission across upgrades.
 
       Initialize and start Wisp:
         wisp init
@@ -29,7 +30,7 @@ class Wisp < Formula
   end
 
   service do
-    run [opt_bin/"wisp", "serve"]
+    run [opt_libexec/"Wisp Daemon.app/Contents/MacOS/wisp", "serve"]
     keep_alive true
     working_dir Dir.home
     environment_variables PATH: "#{std_service_path_env}:#{Dir.home}/.local/bin:#{Dir.home}/.bun/bin"
