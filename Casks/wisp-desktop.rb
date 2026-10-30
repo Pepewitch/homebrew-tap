@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 cask "wisp-desktop" do
-  version "0.8.3"
-  sha256 "25144fc58ee79acaa90dfa54d99572c772e43091109a2007e6c42052421d1c9c"
+  version "0.8.4"
+  sha256 "0320a0e56a87889d709d77fe8cba92e086d7e2b72ba066bf50b255a4d817fba2"
 
   url "https://github.com/Pepewitch/wisp/releases/download/v#{version}/wisp-desktop-v#{version}-darwin-arm64.tar.gz"
   name "Wisp Desktop"
@@ -18,8 +18,8 @@ cask "wisp-desktop" do
 
   auto_updates true
   depends_on arch: :arm64
-  depends_on macos: :monterey
   depends_on formula: "pepewitch/tap/wisp"
+  depends_on macos: :monterey
 
   app "Wisp.app"
 
